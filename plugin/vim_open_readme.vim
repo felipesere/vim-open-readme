@@ -1,3 +1,7 @@
+function! s:escape(path)
+  return substitute(a:path, ' ', '\\ ', 'g')
+endfunction
+
 function! Maybe_open_README()
   if bufname('%') != ''
     return
