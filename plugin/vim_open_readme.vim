@@ -12,6 +12,12 @@ function! Maybe_open_README()
     execute 'edit '. s:escape(maybe_file)
     execute 'set ft=markdown'
   endif
+
+  let maybe_file = expand(globpath('.', 'readme*'))
+  if filereadable(maybe_file)
+    execute 'edit '. s:escape(maybe_file)
+    execute 'set ft=markdown'
+  endif
 endfunction
 
 autocmd VimEnter * :call Maybe_open_README()
